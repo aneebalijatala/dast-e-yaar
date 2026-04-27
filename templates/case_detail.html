@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="icon" type="image" href="/static/logo.png">
+</head>
+
+<body>
+    <div style="text-align: center; margin: 15px 0;">
+    <img src="/static/logo.png" alt="logo" style="height: 150px; width: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+</div>
+<div class="page">
+
+<div class="header">
+    <h2>Case Verification Form</h2>
+    <p><b>DAST E YAAR</b></p>
+</div>
+
+<!-- SECTION I -->
+<table class="form-table">
+<tr><th colspan="4">Personal Information</th></tr>
+
+<tr>
+<td>Name</td>
+<td colspan="3">{{ case.name }}</td>
+</tr>
+
+<tr>
+<td>Address</td>
+<td colspan="3">{{ case.address }}</td>
+</tr>
+
+<tr>
+<td>DOB</td>
+<td>{{ case.dob }}</td>
+<td>CNIC</td>
+<td>{{ case.cnic }}</td>
+</tr>
+
+<tr>
+<td>Religion</td>
+<td>{{ case.religion }}</td>
+<td>Phone</td>
+<td>{{ case.phone }}</td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td colspan="3">
+{% if case.gender == 'Male' %}☑{% else %}☐{% endif %} Male
+{% if case.gender == 'Female' %}☑{% else %}☐{% endif %} Female
+</td>
+</tr>
+</table>
+
+<!-- SECTION II -->
+<table class="form-table">
+<tr><th colspan="4">Family Information</th></tr>
+
+<tr>
+<td>Marital Status</td>
+<td colspan="3">{{ case.marital_status }}</td>
+</tr>
+
+<tr>
+<td>Dependents</td>
+<td>{{ case.dependents }}</td>
+<td>Family Members</td>
+<td>{{ case.family_members }}</td>
+</tr>
+
+<tr>
+<td>Monthly Income</td>
+<td>{{ case.income }}</td>
+<td>Expenses</td>
+<td>{{ case.expenses }}</td>
+</tr>
+</table>
+
+<!-- SECTION III -->
+<table class="form-table">
+<tr><th colspan="4">Case Details</th></tr>
+
+<tr>
+<td>Case Type</td>
+<td colspan="3">{{ case.case_type }}</td>
+</tr>
+
+<tr>
+<td colspan="4">{{ case.description }}</td>
+</tr>
+
+<tr>
+<td>Funds Required</td>
+<td>{{ case.amount }}</td>
+<td>Previous Help</td>
+<td>{{ case.previous_help }}</td>
+</tr>
+</table>
+
+<!-- SECTION IV -->
+<table class="form-table">
+<tr><th colspan="4">Documents</th></tr>
+
+<tr>
+<td colspan="4">
+{% for doc in case.documents %}
+    {{ doc.filename }}<br>
+{% else %}
+    No documents
+{% endfor %}
+</td>
+</tr>
+</table>
+
+<!-- SECTION V -->
+<table class="form-table">
+<tr><th colspan="4">Account Details</th></tr>
+
+<tr>
+<td>Account Type</td>
+<td>{{ case.account_type }}</td>
+<td>Account Number</td>
+<td>{{ case.account_number }}</td>
+</tr>
+
+<tr>
+<td>Account Holder</td>
+<td>{{ case.account_holder }}</td>
+<td>Relation</td>
+<td>{{ case.relation }}</td>
+</tr>
+</table>
+
+<!-- SECTION VI -->
+<table class="form-table">
+<tr><th colspan="4">Office Decision</th></tr>
+
+<tr>
+<td>Status</td>
+<td>{{ case.status }}</td>
+<td>Comments</td>
+<td>{{ case.comments }}</td>
+</tr>
+</table>
+<!-- UPDATE FORM -->
+<form method="POST">
+    <label>Status:</label>
+    <select name="status">
+        <option value="Pending" {% if case.status == 'Pending' %}selected{% endif %}>Pending</option>
+        <option value="Approved" {% if case.status == 'Approved' %}selected{% endif %}>Approved</option>
+        <option value="Rejected" {% if case.status == 'Rejected' %}selected{% endif %}>Rejected</option>
+    </select>
+
+    <br><br>
+
+    <label>Comments:</label><br>
+    <textarea name="comments">{{ case.comments }}</textarea>
+
+    <br><br>
+
+    <button type="submit">Update</button>
+</form>
+
+<hr>
+
+<!-- PDF DOWNLOAD -->
+<a href="/case/{{ case.id }}/pdf" target="_blank">
+    <button>Download PDF</button>
+</a>
+<p class="footer">
+This form is confidential
+</p>
+
+</div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="icon" type="image" href="/static/logo.png">
+
+</head>
+
+<body>
+<div style="text-align: center; margin: 15px 0;">
+    <img src="/static/logo.png" alt="logo" style="height: 150px; width: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+</div>
+<div class="header">
+    <h2>Case Verification Form / کیس تصدیقی فارم</h2>
+    <p><b>DAST E YAAR</b></p>
+</div>
+
+<!-- SECTION I -->
+<table class="form-table">
+<tr><th colspan="4">Section I: Personal Information</th></tr>
+
+<tr>
+<td>Full Name</td>
+<td colspan="3">{{ case.name }}</td>
+</tr>
+
+<tr>
+<td>Address</td>
+<td colspan="3">{{ case.address }}</td>
+</tr>
+
+<tr>
+<td>Date of Birth</td>
+<td>{{ case.dob }}</td>
+<td>CNIC</td>
+<td>{{ case.cnic }}</td>
+</tr>
+
+<tr>
+<td>Religion</td>
+<td>{{ case.religion }}</td>
+<td>Phone</td>
+<td>{{ case.phone }}</td>
+</tr>
+
+<tr>
+<td>Gender</td>
+<td colspan="3">
+{% if case.gender == 'Male' %}☑{% else %}☐{% endif %} Male
+&nbsp;&nbsp;
+{% if case.gender == 'Female' %}☑{% else %}☐{% endif %} Female
+</td>
+</tr>
+</table>
+
+<!-- SECTION II -->
+<table class="form-table">
+<tr><th colspan="4">Section II: Family Information</th></tr>
+
+<tr>
+<td>Marital Status</td>
+<td colspan="3">{{ case.marital_status }}</td>
+</tr>
+
+<tr>
+<td>Dependents</td>
+<td>{{ case.dependents }}</td>
+<td>Family Members</td>
+<td>{{ case.family_members }}</td>
+</tr>
+
+<tr>
+<td>Monthly Income</td>
+<td>{{ case.income }}</td>
+<td>Expenses</td>
+<td>{{ case.expenses }}</td>
+</tr>
+</table>
+
+<!-- SECTION III -->
+<table class="form-table">
+<tr><th colspan="4">Section III: Case Details</th></tr>
+
+<tr>
+<td>Case Type</td>
+<td colspan="3">
+{% if case.case_type == 'Medical' %}☑{% else %}☐{% endif %} Medical
+{% if case.case_type == 'Education' %}☑{% else %}☐{% endif %} Education
+{% if case.case_type == 'Financial' %}☑{% else %}☐{% endif %} Financial
+{% if case.case_type == 'Shelter' %}☑{% else %}☐{% endif %} Shelter
+{% if case.case_type == 'Other' %}☑{% else %}☐{% endif %} Other
+</td>
+</tr>
+
+<tr>
+<td colspan="4" style="height:80px;">
+{{ case.description }}
+</td>
+</tr>
+
+<tr>
+<td>Funds Required</td>
+<td>{{ case.amount }}</td>
+<td>Previous Assistance</td>
+<td>
+{% if case.previous_help == 'Yes' %}☑{% else %}☐{% endif %} Yes
+{% if case.previous_help == 'No' %}☑{% else %}☐{% endif %} No
+</td>
+</tr>
+</table>
+
+<!-- SECTION IV -->
+<table class="form-table">
+<tr><th colspan="4">Section IV: Documents</th></tr>
+
+<tr>
+<td colspan="4">
+{% for doc in docs %}
+    {{ doc.filename }}<br>
+{% else %}
+    No documents uploaded
+{% endfor %}
+</td>
+</tr>
+</table>
+
+<!-- SECTION V -->
+<table class="form-table">
+<tr><th colspan="4">Section V: Account Details</th></tr>
+
+<tr>
+<td>Account Number</td>
+<td>{{ case.account_number }}</td>
+<td>Account Type</td>
+<td>{{ case.account_type }}</td>
+</tr>
+
+<tr>
+<td>Account Holder</td>
+<td>{{ case.account_holder }}</td>
+<td>Relation</td>
+<td>{{ case.relation }}</td>
+</tr>
+</table>
+
+<!-- SECTION VI -->
+<table class="form-table">
+<tr><th colspan="4">Section VI: Decision (Office Use)</th></tr>
+
+<tr>
+<td>Status</td>
+<td>{{ case.status }}</td>
+<td>Comments</td>
+<td>{{ case.comments }}</td>
+</tr>
+</table>
+
+<!-- SIGNATURE -->
+<table class="form-table">
+<tr>
+<td>Applicant Signature</td>
+<td></td>
+<td>Verifier Signature</td>
+<td></td>
+</tr>
+</table>
+
+<p class="footer">
+This form is confidential / یہ فارم خفیہ ہے
+</p>
+
+</body>
+</html>

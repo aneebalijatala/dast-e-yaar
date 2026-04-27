@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Form - Dast e Yaar </title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="icon" type="image" href="/static/logo.png">
+</head>
+
+<body>
+<div style="text-align: center; margin: 15px 0;">
+    <img src="/static/logo.png" alt="logo" style="height: 150px; width: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+</div>
+<div class="page">
+
+    <div class="header">
+        <h2>Case Verification Form / کیس تصدیقی فارم</h2>
+        <p><b>DAST E YAAR</b> – Together We're Family / دستِ یار</p>
+        <p>Whatsapp: 0311-6534075 | dasteyaar@gmail.com</p>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+
+    <!-- SECTION I -->
+    <table class="form-table">
+        <tr><th colspan="4">Section I: Personal Information / ذاتی معلومات</th></tr>
+
+        <tr>
+            <td>Full Name / مکمل نام</td>
+            <td colspan="3"><input type="text" name="name"></td>
+        </tr>
+
+        <tr>
+            <td>Address / پتہ</td>
+            <td colspan="3"><input type="text" name="address"></td>
+        </tr>
+
+        <tr>
+            <td>Date of Birth</td>
+            <td><input type="date" name="dob"></td>
+            <td>CNIC</td>
+            <td><input type="text" name="cnic"></td>
+        </tr>
+
+        <tr>
+            <td>Religion</td>
+            <td><input type="text" name="religion"></td>
+            <td>Phone</td>
+            <td><input type="text" name="phone"></td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td colspan="3">
+                <label><input type="radio" name="gender" value="Male"> Male / مرد</label>
+                <label><input type="radio" name="gender" value="Female"> Female / عورت</label>
+            </td>
+        </tr>
+    </table>
+
+    <!-- SECTION II -->
+    <table class="form-table">
+        <tr><th colspan="4">Section II: Family Information / خاندانی معلومات</th></tr>
+
+        <tr>
+            <td>Marital Status</td>
+            <td colspan="3">
+                <select name="marital_status">
+                    <option>Single</option>
+                    <option>Married</option>
+                    <option>Divorced</option>
+                    <option>Widowed</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Dependents</td>
+            <td><input type="text" name="dependents"></td>
+            <td>Family Members</td>
+            <td><input type="text" name="family_members"></td>
+        </tr>
+
+        <tr>
+            <td>Monthly Income</td>
+            <td><input type="text" name="income"></td>
+            <td>Expenses</td>
+            <td><input type="text" name="expenses"></td>
+        </tr>
+    </table>
+
+    <!-- SECTION III -->
+    <table class="form-table">
+        <tr><th colspan="4">Section III: Case Details / کیس کی تفصیل</th></tr>
+
+        <tr>
+            <td>Case Type</td>
+            <td colspan="3">
+                <select name="case_type">
+                    <option>Medical</option>
+                    <option>Education</option>
+                    <option>Financial</option>
+                    <option>Shelter</option>
+                    <option>Other</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4">Description</td>
+        </tr>
+
+        <tr>
+            <td colspan="4">
+                <textarea name="description" rows="5"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Funds Required</td>
+            <td><input type="text" name="amount"></td>
+            <td>Previous Assistance</td>
+            <td>
+                <label><input type="radio" name="previous_help" value="Yes"> Yes</label>
+                <label><input type="radio" name="previous_help" value="No"> No</label>
+            </td>
+        </tr>
+    </table>
+
+    <!-- SECTION IV -->
+    <table class="form-table">
+        <tr><th colspan="4">Section IV: Documents / دستاویزات</th></tr>
+
+        <tr>
+            <td colspan="4">
+                <input type="file" name="files" multiple>
+            </td>
+        </tr>
+    </table>
+
+    <!-- SECTION V -->
+    <table class="form-table">
+        <tr><th colspan="4">Section V: Account Details / اکاؤنٹ</th></tr>
+
+        <tr>
+            <td>Account Type</td>
+            <td colspan="3">
+                <select name="account_type">
+                    <option>JazzCash</option>
+                    <option>Easypaisa</option>
+                    <option>Bank</option>
+                    <option>Other</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Account Number</td>
+            <td><input type="text" name="account_number"></td>
+            <td>Account Holder</td>
+            <td><input type="text" name="account_holder"></td>
+        </tr>
+
+        <tr>
+            <td>Relation</td>
+            <td colspan="3"><input type="text" name="relation"></td>
+        </tr>
+    </table>
+<!--Terms and Conditions-->
+<div style="text-align: right;">
+    
+<p>اس فارم کا مقصد ڈدستِ یار چیریٹی سوسائٹی سے مالی یا دیگر مدد کے لیے درخواست دینے والے افراد سے درست اور مکمل معلومات حاصل کرنا ہے۔</p>
+
+<p>فراہم کی گئی معلومات صرف درخواستوں کی جانچ پڑتال اور پروسیسنگ کے مقصد کے لیے استعمال کی جائیں گی۔</p>
+
+<p>درخواست دہندگان پر لازم ہے کہ وہ اپنی معلومات اپنی بہترین معلومات کے مطابق سچی، درست اور مکمل فراہم کریں۔</p>
+
+<p>کسی بھی قسم کی غلط، گمراہ کن یا نامکمل معلومات کی صورت میں درخواست مسترد کی جا سکتی ہے یا فراہم کردہ امداد ختم کی جا سکتی ہے۔</p>
+
+<p>اس فارم میں دی گئی تمام معلومات کو خفیہ رکھا جائے گا اور صرف انہی مقاصد کے لیے استعمال کیا جائے گا جو یہاں بیان کیے گئے ہیں۔</p>
+
+<p>دستِ یار درخواست دہندہ کی اجازت کے بغیر کسی بھی ذاتی معلومات کو کسی تیسرے فریق کے ساتھ شیئر نہیں کرے گی، سوائے ان صورتوں کے جو قانوناً ضروری ہوں۔</p>
+
+<p>دستِ یار کو یہ حق حاصل ہے کہ وہ فراہم کردہ تمام معلومات کی تصدیق مختلف طریقوں سے کرے، جن میں انٹرویوز، دستاویزات کا جائزہ اور تیسرے فریق سے تصدیق شامل ہے۔</p>
+
+<p>تصدیقی عمل کے دوران درخواست دہندہ سے اضافی معلومات یا وضاحت کے لیے رابطہ کیا جا سکتا ہے۔</p>
+
+<p>امداد کی اہلیت کا تعین فراہم کردہ معلومات اور تصدیقی عمل کے نتائج کی بنیاد پر کیا جائے گا۔</p>
+
+<p>دستِ یار کو یہ حق حاصل ہے کہ وہ اپنی صوابدید کے مطابق اہلیت کے معیار مقرر کرے یا ان میں تبدیلی کرے۔</p>
+
+<p>درخواستوں کی منظوری یا مسترد کرنے کے فیصلے تصدیقی نتائج اور اہلیت کے معیار کی بنیاد پر کیے جائیں گے۔</p>
+
+<p>درخواست دہندگان کو فیصلے سے بروقت آگاہ کیا جائے گا۔</p>
+
+<p>منظور شدہ رقم صرف اسی مقصد کے لیے استعمال کی جائے گی جو درخواست میں بیان کیا گیا ہو۔</p>
+
+<p>فنڈز کے غلط استعمال کی صورت میں امداد ختم کی جا سکتی ہے اور رقم کی واپسی کا مطالبہ کیا جا سکتا ہے۔</p>
+
+<p>دستِ یاراس بات کو یقینی بنانے کے لیے فالو اپ سرگرمیاں کر سکتی ہے کہ فراہم کی گئی امداد صحیح طریقے سے استعمال ہو رہی ہے۔</p>
+
+<p>درخواست دہندگان پر لازم ہے کہ وہ فالو اپ سرگرمیوں میں مکمل تعاون کریں اور مطلوبہ معلومات فراہم کریں۔</p>
+
+<p>دستِ یار کو یہ حق حاصل ہے کہ وہ ان شرائط و ضوابط میں کسی بھی وقت تبدیلی کر سکے۔</p>
+
+<p>کسی بھی تبدیلی کی اطلاع درخواست دہندگان کو دی جائے گی اور یہ آئندہ تمام درخواستوں پر لاگو ہوگی۔</p>
+
+<p>یہ شرائط و ضوابط اس قانون کے مطابق ہوں گے اور اس کے تحت تشریح کیے جائیں گے جہاں ڈسٹ اے یار چیریٹی سوسائٹی کام کر رہی ہے۔</p>
+</div>  
+<!-- SUBMIT -->
+    <div style="text-align:center; margin:20px;">
+        <button type="submit" style="background-color: #a50000 ; color: white; border-color: #a50000; border-radius: 20px;height: 30px; width: 100px; " >Submit Form</button>
+    </div>
+
+    </form>
+
+    <p class="footer">
+        This form is confidential.
+    </p>
+
+</div>
+
+</body>
+</html>

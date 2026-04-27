@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dast e Yaar Case Management Portal</title>
+<link rel="icon" type="image" href="/static/logo.png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f2f2f2;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #a50000, #6d0000);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 420px;
+            margin: 60px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        /* WELCOME TEXT */
+        .welcome {
+            margin: 10px 0 25px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* BUTTON STYLE */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            background: linear-gradient(135deg, #a50000, #7a0000);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(165,0,0,0.3);
+        }
+
+        /* LOGOUT */
+        .logout {
+            display: inline-block;
+            margin-top: 15px;
+            color: #a50000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .logout:hover {
+            color: #7a0000;
+            text-decoration: underline;
+        }
+
+        /* SMALL FOOTER TEXT */
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div style="text-align: center; margin: 15px 0;">
+    <img src="/static/logo.png" alt="logo" style="height: 150px; width: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+</div>
+<div class="header">
+    <h1>DAST E YAAR CASE MANAGEMENT PORTAL</h1>
+</div>
+
+<div class="container">
+
+    <h2 style="color:#a50000;"></h2>
+
+    <p class="welcome">
+        Welcome, <b>{{ current_user.username }}</b>
+    </p>
+
+    <a href="/form" class="btn">Verification Form</a>
+
+    <a href="/dashboard" class="btn">Cases Dashboard</a>
+
+    <a href="/logout" class="logout">Logout</a>
+
+    <div class="footer">
+        © 2026 Dast e Yaar | All Rights Reserved
+    </div>
+
+</div>
+
+</body>
+</html>

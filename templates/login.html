@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Dast e Yaar</title>
+    <link rel="icon" type="image" href="/static/logo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #1b1b1b);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: white;
+            padding: 30px;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h2 {
+            color: #a50000;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #a50000;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            background: #a50000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #7d0000;
+        }
+
+        .footer {
+            font-size: 12px;
+            margin-top: 15px;
+            color: #666;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="/static/logoo.png" alt="logo">
+
+<div class="login-box">
+
+    <h2>Login</h2>
+
+    <form method="POST">
+        <input name="username" placeholder="Username" required><br>
+
+        <input type="password" name="password" placeholder="Password" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="footer">
+        Dast e Yaar System
+    </div>
+
+</div>
+
+</body>
+</html>

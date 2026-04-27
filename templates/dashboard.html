@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Dast e Yaar</title>
+    <link rel="icon" type="image" href="/static/logo.png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        /* HEADER */
+        h2 {
+            text-align: center;
+            color: #a50000;
+            margin-top: 20px;
+        }
+
+        /* FILTER LINKS */
+        .filters {
+            text-align: center;
+            margin: 20px 0;
+        } 
+
+        .filters a {
+            text-decoration: none;
+            background: #a50000;
+            color: white;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .filters a:hover {
+            background: #7a0000;
+        }
+
+        /* TABLE DESIGN */
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #a50000;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        /* VIEW BUTTON */
+        .view-btn {
+            background: #a50000;
+            color: white;
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .view-btn:hover {
+            background: #7a0000;
+        }
+
+        /* STATUS BADGES */
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: white;
+        }
+
+        .Pending { background: orange; }
+        .Approved { background: green; }
+        .Rejected { background: red; }
+
+    </style>
+
+</head>
+
+<body>
+<div style="text-align: center; margin: 15px 0;">
+    <img src="/static/logo.png" alt="logo" style="height: 150px; width: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+</div>
+<h2>Case Dashboard</h2>
+
+<!-- FILTERS -->
+<div class="filters">
+    <a href="/dashboard">All</a>
+    <a href="/dashboard?status=Pending">Pending</a>
+    <a href="/dashboard?status=Approved">Approved</a>
+    <a href="/dashboard?status=Rejected">Rejected</a>
+</div>
+
+<!-- TABLE -->
+<table>
+<tr>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for case in cases %}
+<tr>
+    <td>{{ case.name }}</td>
+
+    <td>
+        <span class="status {{ case.status }}">
+            {{ case.status }}
+        </span>
+    </td>
+
+    <td>
+        <a class="view-btn" href="/case/{{ case.id }}">View</a>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
